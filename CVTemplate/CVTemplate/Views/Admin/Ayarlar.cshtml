@@ -1,0 +1,42 @@
+﻿
+
+@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Şifre ve Kullanıcı Adı Ayarları</h2>
+
+
+@if (TempData["Result"] != null)
+{
+    <div class="alert alert-@TempData["Status"]" role="alert">
+        @TempData["Result"]
+    </div>
+}
+<hr />
+@using (Html.BeginForm("Ayarlar", "Admin"))
+{
+    <div id="content">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Kullanıcı Adı</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="kullaniciadi" placeholder="@Model.admin.kullaniciadi">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Şifre</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="sifre">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Şifre</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="sifre2">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mb-2" id="btnDegistir">Değiştir</button>
+        </div>
+    </div>
+
+
+}

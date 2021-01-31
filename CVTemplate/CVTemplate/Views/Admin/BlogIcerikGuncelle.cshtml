@@ -1,0 +1,46 @@
+﻿@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Blog Güncelle</h2>
+
+<br />
+
+@using (Html.BeginForm("BlogIcerikGuncelle", "Admin"))
+{
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Başlık</label>
+        <textarea rows="3" cols="100" name="baslik" class="form-control">@Model.secilenBlog.baslik</textarea>
+
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">İçerik</label>
+        <textarea rows="5" cols="100" name="icerik" class="form-control">@Model.secilenBlog.icerik</textarea>
+
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Kategori Başlık</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="tip">
+            @foreach (var item in Model.lstKategori)
+            {
+                if (Model.secKategori != null)
+                {
+                    <option selected value="@item.tip">@item.KategoriBaslik</option>
+                }
+                else
+                {
+                    <option value="@item.tip">@item.KategoriBaslik</option>
+
+                }
+            }
+
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-warning mb-2">Güncelle</button>
+    </div>
+
+}

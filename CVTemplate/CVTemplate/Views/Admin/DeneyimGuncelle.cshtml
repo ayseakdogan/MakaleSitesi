@@ -1,0 +1,28 @@
+﻿@model  CVTemplate.Models.Deneyim
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Deneyim Güncelle</h2>
+<br />
+@using (Html.BeginForm("DeneyimGuncelle", "Admin"))
+{
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Görev Yeri</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="gorevyeri" value="@Model.calismaYeri">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Görev</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="gorev" value="@Model.görev">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Görev Yılı</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="gorevyili" value="@Model.calismaYili">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mb-2">Güncelle</button>
+    </div>
+
+}

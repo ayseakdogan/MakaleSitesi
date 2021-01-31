@@ -1,0 +1,37 @@
+﻿@model  CVTemplate.Models.DilBilgi
+
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Dil Sil</h2>
+
+
+<p>Aşağıdaki veriyi silmek istediğinize emin misiniz?</p>
+
+
+@Html.Label("Dil Adı: ")
+
+@Html.DisplayFor(x => x.konuİsmi)
+<br />
+<br />
+@Html.Label("Yüzde Bilgisi:")
+
+@Html.DisplayFor(x => x.yuzdesi)
+<br />
+<br />
+
+<hr />
+@using (Html.BeginForm("DilSil", "Admin"))
+{
+    @Html.HiddenFor(x => x.id)
+    <input type="submit" value="Sil" class="btn btn-primary" />
+
+}
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-@ViewBag.Status" role="alert">
+        @ViewBag.Result;
+    </div>
+}

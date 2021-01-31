@@ -1,0 +1,26 @@
+﻿@model  CVTemplate.Models.DilBilgi
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Dil Güncelle</h2>
+
+
+@using (Html.BeginForm("DilGuncelle", "Admin"))
+{
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Dil Adı</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="konuadi" value="@Model.konuİsmi">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Bilgi Yüzdesi</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="yuzde" value="@Model.yuzdesi">
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mb-2">Güncelle</button>
+    </div>
+
+}

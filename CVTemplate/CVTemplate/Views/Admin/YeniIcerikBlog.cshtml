@@ -1,0 +1,27 @@
+﻿@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Yeni içerik Blog</h2>
+<br />
+
+@using (Html.BeginForm("YeniIcerikBlog", "Admin"))
+{
+
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">İçerik Başlığı</label>
+    <textarea rows="3" cols="100" name="baslik" class="form-control"></textarea>
+</div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">İçerik Açıklaması</label>
+        <textarea rows="5" cols="100" name="icerik" class="form-control"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mb-2">Ekle</button>
+    </div>
+
+}

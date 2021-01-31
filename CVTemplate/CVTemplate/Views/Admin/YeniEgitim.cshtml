@@ -1,0 +1,33 @@
+﻿@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Yeni Eğitim</h2>
+
+<br />
+
+@using (Html.BeginForm("YeniEgitim", "Admin"))
+{
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Üniversite</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="universite" >
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Bölüm</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="bolum" >
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Eğitim Yılı</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="egitimyili" >
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Açıklama</label>
+        <textarea rows="10" cols="100" name="aciklama" class="form-control"></textarea>
+    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mb-2">Ekle</button>
+        </div>
+    
+}

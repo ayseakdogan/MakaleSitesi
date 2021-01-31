@@ -1,0 +1,29 @@
+﻿@model  CVTemplate.Controllers.AdminController.AllTables2
+@{
+    ViewBag.Title = "FileLoadKisi";
+}
+<br />
+<h2>Resim Düzenle</h2>
+<hr />
+<div class="col-md-10">
+    @using (Html.BeginForm("FileLoad",
+                            "Admin",
+                            FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+    {
+        <label for="file">Resim Yükle:</label>
+        <input type="file" name="file" id="file" />
+        <br>
+        <br>
+
+        <input type="submit" value="Kaydet" class="btn btn-success" id="@Model.secResiim.resimNo" />
+
+
+
+        <br>
+        <br>
+        <img src="@Model.secResiim.resimYol" alt="resim" />
+
+        @ViewBag.Message
+    }
+</div>

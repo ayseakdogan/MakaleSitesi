@@ -1,0 +1,49 @@
+﻿@model CVTemplate.Models.Referans
+    @{
+         ViewBag.Title = "Admin Panel";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <br />
+    <h2>Referans Sil</h2>
+    <br />
+    <p>Aşağıdaki veriyi silmek istediğinize emin misiniz?</p>
+
+
+    @Html.Label("Referans Adı ")
+
+    @Html.DisplayFor(x => x.refAd)
+    <br />
+    <br />
+    @Html.Label("Referans Soyadı:")
+
+    @Html.DisplayFor(x => x.refSoyad)
+    <br />
+    <br />
+    @Html.Label("Referans Telefon:")
+
+    @Html.DisplayFor(x => x.refTelefon)
+    <br />
+    <br />
+    @Html.Label("Referans Şirket:")
+
+    @Html.DisplayFor(x => x.refSirket)
+    <br />
+    <br />
+    @Html.Label("Referans Görev:")
+
+    @Html.DisplayFor(x => x.refGorev)
+    <br />
+    <br />
+    <hr />
+    @using (Html.BeginForm("ReferansSil", "Admin"))
+    {
+        @Html.HiddenFor(x => x.id)
+        <input type="submit" value="Sil" class="btn btn-primary" />
+
+    }
+    @if (ViewBag.Result != null)
+    {
+        <div class="alert alert-@ViewBag.Status" role="alert">
+            @ViewBag.Result;
+        </div>
+    }

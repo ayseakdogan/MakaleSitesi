@@ -1,0 +1,45 @@
+﻿@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+
+<br />
+<h3>Kişisel Bilgiler</h3>
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Meslek</th>
+            <th scope="col">Telefon Numarası</th>
+            <th scope="col">Email</th>
+            <th scope="col">Adres</th>
+            <th scope="col" width="25%">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.lstKisi)
+        {
+            <tr>
+
+
+                <td>@item.ad</td>
+                <td>@item.soyad</td>
+                <td>@item.meslek</td>
+                <td>@item.telefon</td>
+                <td>@item.mail</td>
+                <td>@item.adress</td>
+                <td>
+                    @Html.ActionLink("Güncelle", "KisiGuncelle", "Admin", new { id = item.id }, new { @class = "btn btn-warning btn-xs" })
+
+                    @Html.ActionLink("Profil Resmi", "FileLoad", "Admin", new { id = Model.secResiim.resimNo }, new { @class = "btn btn-info btn-xs" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

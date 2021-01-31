@@ -1,0 +1,34 @@
+﻿@using CVTemplate.Controllers
+
+@model AllTables
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Beceriler ve Yetenekler</h2>
+<hr />
+@Html.ActionLink("Yeni Beceri Ekle", "YeniBeceri", "Admin", null, new { @class = "btn btn-success btn-xs" })
+
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Başlık</th>
+            <th width="20%" scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.lstBeceriYetenek)
+        {
+            <tr>
+                <td>@item.baslik</td>
+                <td>
+                    @Html.ActionLink("Güncelle", "BeceriGuncelle", "Admin", new { id = item.id }, new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Sil", "BeceriSil", "Admin", new { id = item.id }, new { @class = "btn btn-danger btn-xs" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

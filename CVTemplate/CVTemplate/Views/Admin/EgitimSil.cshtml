@@ -1,0 +1,45 @@
+﻿@model  CVTemplate.Models.Egitim
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Eğitim Sil</h2>
+<br />
+<p>Aşağıdaki veriyi silmek istediğinize emin misiniz?</p>
+
+
+@Html.Label("Üniversite: ")
+
+@Html.DisplayFor(x => x.Universite)
+<br />
+<br />
+@Html.Label("Bölüm:")
+
+@Html.DisplayFor(x => x.Bolum)
+<br />
+<br />
+@Html.Label("Eğitim Yılı:")
+
+@Html.DisplayFor(x => x.egitimYili)
+<br />
+<br />
+@Html.Label("Açıklama:")
+
+@Html.DisplayFor(x => x.Aciklama)
+<br />
+<br />
+
+<hr />
+@using (Html.BeginForm("EgitimSil", "Admin"))
+{
+    @Html.HiddenFor(x => x.id)
+    <input type="submit" value="Sil" class="btn btn-primary" />
+
+}
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-@ViewBag.Status" role="alert">
+        @ViewBag.Result;
+    </div>
+}

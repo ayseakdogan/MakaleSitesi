@@ -1,0 +1,42 @@
+﻿@model  CVTemplate.Models.Deneyim
+
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Deneyim Sil</h2>
+
+<br />
+<p>Aşağıdaki veriyi silmek istediğinize emin misiniz?</p>
+
+
+@Html.Label("Görev Yeri: ")
+
+@Html.DisplayFor(x => x.calismaYeri)
+<br />
+<br />
+@Html.Label("Görev:")
+
+@Html.DisplayFor(x => x.görev)
+<br />
+<br />
+@Html.Label("Görev Yılı:")
+
+@Html.DisplayFor(x => x.calismaYili)
+<br />
+<br />
+
+<hr />
+@using (Html.BeginForm("DeneyimSil", "Admin"))
+{
+    @Html.HiddenFor(x => x.id)
+    <input type="submit" value="Sil" class="btn btn-primary" />
+
+}
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-@ViewBag.Status" role="alert">
+        @ViewBag.Result;
+    </div>
+}

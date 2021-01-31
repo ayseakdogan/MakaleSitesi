@@ -1,0 +1,44 @@
+﻿
+@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Referanslar</h2>
+<hr />
+@Html.ActionLink("Yeni Referans Ekle", "YeniReferans", "Admin", null, new { @class = "btn btn-success btn-xs" })
+<br />
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+
+            <th scope="col">Referans Ad</th>
+            <th scope="col">Referans Soyad</th>
+            <th scope="col">Referans Şirket</th>
+            <th scope="col">Referans Telefon Numarası</th>
+            <th scope="col">Referans Görev</th>
+            <th scope="col" width="20%">işlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.lstReferans)
+        {
+            <tr>
+                <td>@item.refAd</td>
+                <td>@item.refSoyad</td>
+                <td>@item.refSirket</td>
+                <td>@item.refTelefon</td>
+                <td>@item.refGorev</td>
+
+                <td>
+                    @Html.ActionLink("Güncelle", "ReferansGuncelle", "Admin", new { id = item.id }, new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Sil", "ReferansSil", "Admin", new { id = item.id }, new { @class = "btn btn-danger btn-xs" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

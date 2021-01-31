@@ -1,0 +1,42 @@
+﻿@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Yeni Proje</h2>
+<br />
+
+@using (Html.BeginForm("YeniProje", "Admin"))
+{
+    @*<div class="form-group">
+        <label for="exampleFormControlSelect1">Proje Kategori</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="projekategori">
+            @foreach (var item in Model.lstProjeCategory)
+            {
+                <option value="@item.id">@item.baslik</option>
+
+            }
+
+        </select>
+    </div>*@
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Proje Başlık</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="projebaslik">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Proje Yılı</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="projeyili">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Proje Linki</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="projelink">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Proje Açıklama</label>
+        <textarea rows="10" cols="100" name="aciklama" class="form-control"></textarea></div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mb-2">Ekle</button>
+        </div>
+    
+}

@@ -1,0 +1,97 @@
+﻿@using CVTemplate.Controllers
+
+@model AllTables
+
+<aside class="col l4 m12 s12 sidebar z-depth-1" id="sidebar">
+    <div class="row">
+        <div class="heading">
+            <div class="feature-img">
+                <a href="Index"><img src="@Model.secResim.resimYol" class="responsive-img" alt=""></a>
+            </div>
+            <div class=" nav-icon">
+                <nav>
+                    <div class="nav-wrapper">
+                        <ul id="nav-mobile" class="side-nav">
+                            @foreach (var item in Model.lstKategoriler)
+                            {
+                                <li><a href="@item.KategoriLink">@item.KategoriBaslik</a></li>
+                            }
+
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse  "><i class="mdi-navigation-menu"></i></a>
+                    </div>
+                </nav>
+            </div>
+          
+            <div class="title col s12 m12 l9 right  wow fadeIn" data-wow-delay="0.1s">
+                <h2> @(Model.lstKisi.FirstOrDefault().ad + " " + Model.lstKisi.FirstOrDefault().soyad)</h2> 
+                <span>@Model.lstKisi.FirstOrDefault().meslek</span> 
+            </div>
+        </div>
+
+        <div class="col l12 m12 s12  mobile sidebar-item">
+            <div class="row">
+                <div class="col m12 s12 l3 icon">
+                    <i class="fa fa-phone"></i> 
+                </div>
+                <div class="col m12 s12 l9 info wow fadeIn a2" data-wow-delay="0.2s">
+                    <div class="section-item-details">
+                        <div class="personal">
+                            <h4><a href="tel:@Model.lstKisi.FirstOrDefault().telefon">@Model.lstKisi.FirstOrDefault().telefon</a></h4> 
+                            <span>mobile</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col l12 m12 s12  email sidebar-item ">
+            <div class="row">
+                <div class="col m12 s12 l3 icon">
+                    <i class="fa fa-envelope"></i> 
+                </div>
+                <div class="col m12 s12 l9 info wow fadeIn a3" data-wow-delay="0.3s">
+                    <div class="section-item-details">
+                        <div class="personal">
+                            <h4><a href="mailto:@Model.lstKisi.FirstOrDefault().mail">@Model.lstKisi.FirstOrDefault().mail</a></h4> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col l12 m12 s12  address sidebar-item ">
+            <div class="row">
+                <div class="col l3 m12  s12 icon">
+                    <i class="fa fa-home"></i>
+                </div>
+                <div class="col m12 s12 l9 info wow fadeIn a4" data-wow-delay="0.4s">
+                    <div class="section-item-details">
+                        <div class="address-details">
+                            <h4>@Model.lstKisi.FirstOrDefault().adress</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col l12 m12 s12  skills sidebar-item">
+            <div class="row">
+                <div class="col m12 l3 s12 icon">
+                    <i class="fa fa-calendar-o"></i> 
+                </div>
+                <div class="col m12 l9 s12 skill-line a5 wow fadeIn" data-wow-delay="0.5s">
+                    <h3>
+                        Beceriler ve Yetenekler
+                    </h3>
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <span>@Model.orderedDil[i].konuİsmi</span>
+                        <div class="progress">
+                            <div class="determinate">@Model.orderedDil[i].yuzdesi%</div>
+                        </div>
+                    }
+                   
+                </div>
+            </div>
+        </div>
+    </div>  
+</aside>

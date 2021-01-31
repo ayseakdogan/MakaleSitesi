@@ -1,0 +1,39 @@
+﻿
+
+@model  CVTemplate.Controllers.AdminController.AllTables2
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Proje Kategorileri</h2>
+<hr />
+
+@Html.ActionLink("Yeni Kategori Ekle", "YeniProjeKategori", "Admin", null, new { @class = "btn btn-success btn-xs" })
+
+@Html.ActionLink("Resim Düzenle", "FileLoad", "Admin", new { id = Model.secResiim.resimNo }, new { @class = "btn btn-info btn-xs" })
+<br />
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Proje Kategorisi</th>
+            <th scope="col" width="25%">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.lstProjeCategory)
+        {
+            <tr>
+                <td>@item.baslik</td>
+                <td>
+                    @Html.ActionLink("İncele", "Projeler", "Admin", new { id = item.id }, new { @class = "btn btn-info btn-xs" })
+                    @Html.ActionLink("Güncelle", "ProjeKategoriGuncelle", "Admin", new { id = item.id }, new { @class = "btn btn-warning btn-xs" })
+               
+                    @Html.ActionLink("Sil", "ProjeKategoriSil", "Admin", new { id = item.id }, new { @class = "btn btn-danger btn-xs" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

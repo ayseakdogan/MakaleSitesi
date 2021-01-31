@@ -1,0 +1,37 @@
+﻿@model  CVTemplate.Models.BeceriYetenek
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Beceri Sil</h2>
+
+<br />
+<p>Aşağıdaki veriyi silmek istediğinize emin misiniz?</p>
+
+
+@Html.Label("Başlık: ")
+
+@Html.DisplayFor(x => x.baslik)
+<br />
+<br />
+@Html.Label("Açıklama:")
+
+@Html.DisplayFor(x => x.aciklama)
+<br />
+<br />
+
+
+<hr />
+@using (Html.BeginForm("BeceriSil", "Admin"))
+{
+    @Html.HiddenFor(x => x.id)
+    <input type="submit" value="Sil" class="btn btn-primary" />
+
+}
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-@ViewBag.Status" role="alert">
+        @ViewBag.Result;
+    </div>
+}

@@ -1,0 +1,32 @@
+﻿@model  CVTemplate.Models.ProjeCategory
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Proje Kategori Sil</h2>
+
+<br />
+<p>Aşağıdaki veriyi silmek istediğinize emin misiniz?</p>
+
+
+@Html.Label("Kategori Başlık: ")
+
+@Html.DisplayFor(x => x.baslik)
+
+<br />
+<br />
+
+<hr />
+@using (Html.BeginForm("ProjeKategoriSil", "Admin"))
+{
+    @Html.HiddenFor(x => x.id)
+    <input type="submit" value="Sil" class="btn btn-primary" />
+
+}
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-@ViewBag.Status" role="alert">
+        @ViewBag.Result;
+    </div>
+}

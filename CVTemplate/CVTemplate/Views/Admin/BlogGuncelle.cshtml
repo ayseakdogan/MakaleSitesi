@@ -1,0 +1,23 @@
+﻿@model CVTemplate.Models.Kategoriler
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Blog Güncelle</h2>
+
+<br />
+
+@using (Html.BeginForm("BlogGuncelle", "Admin"))
+{
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Kategori Başlık</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="baslik" value="@Model.KategoriBaslik">
+    </div>
+   
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-warning mb-2">Güncelle</button>
+    </div>
+
+}

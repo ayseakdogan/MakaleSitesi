@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dbaab7cc5a54472b8cc73d458362c1ae" Name="Diagram1">
+        <EntityTypeShape EntityType="CVTabloModel.Referans" Width="1.5" PointX="1.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CVTabloModel.Blog" Width="1.5" PointX="5" PointY="0.5" />
+        <EntityTypeShape EntityType="CVTabloModel.Deneyim" Width="1.5" PointX="2.75" PointY="3.875" />
+        <EntityTypeShape EntityType="CVTabloModel.DilBilgi" Width="1.5" PointX="7.625" PointY="5" />
+        <EntityTypeShape EntityType="CVTabloModel.Egitim" Width="1.5" PointX="7" PointY="2.375" />
+        <EntityTypeShape EntityType="CVTabloModel.Proje" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CVTabloModel.ProjeCategory" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="CVTabloModel.sysdiagrams" Width="1.5" PointX="5.25" PointY="6.125" />
+        <AssociationConnector Association="CVTabloModel.FK_Proje_ProjeCategory" />
+        <EntityTypeShape EntityType="CVTabloModel.AdminLogin" Width="1.5" PointX="7.25" PointY="0.625" />
+        <EntityTypeShape EntityType="CVTabloModel.Resimler" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CVTabloModel.Kisi" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CVTabloModel.BeceriYetenek" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CVTabloModel.Kategoriler" Width="1.5" PointX="3.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

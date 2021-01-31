@@ -1,0 +1,49 @@
+﻿@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Proje Sil</h2>
+<br />
+<p>Aşağıdaki veriyi silmek istediğinize emin misiniz?</p>
+
+
+@Html.Label("Proje Kategorisi: ")
+
+@Html.DisplayFor(x => x.secilenProjeKategori.baslik)
+<br />
+<br />
+@Html.Label("Proje Başlığı:")
+
+@Html.DisplayFor(x => x.secilenProje.altBaslik)
+<br />
+<br />
+@Html.Label("Proje Yılı:")
+
+@Html.DisplayFor(x => x.secilenProje.projeYili)
+<br />
+<br />
+@Html.Label("Proje Linki:")
+
+@Html.DisplayFor(x => x.secilenProje.projeLinki)
+<br />
+<br />
+@Html.Label("Proje Açıklaması:")
+
+@Html.DisplayFor(x => x.secilenProje.aciklama)
+<br />
+<br />
+<hr />
+@using (Html.BeginForm("ProjeSil", "Admin"))
+{
+    @Html.HiddenFor(x => x.secilenProjeKategori.id)
+    <input type="submit" value="Sil" class="btn btn-primary" />
+
+}
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-@ViewBag.Status" role="alert">
+        @ViewBag.Result;
+    </div>
+}

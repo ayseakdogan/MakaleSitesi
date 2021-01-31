@@ -1,0 +1,37 @@
+﻿@model CVTemplate.Models.Referans
+@{
+     ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <br />
+<h2>Referans Güncelle</h2>
+
+<br />
+
+@using (Html.BeginForm("ReferansGuncelle", "Admin"))
+{
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Referans Adı</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="refad" value="@Model.refAd">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Referans Soyadı</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="refsoyad" value="@Model.refSoyad">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Referans Şirketi</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="sirket" value="@Model.refSirket">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Referans Görevi</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="gorev" value="@Model.refGorev">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Referans Telefon</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="telefon" value="@Model.refTelefon">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-warning mb-2">Güncelle</button>
+    </div>
+
+}

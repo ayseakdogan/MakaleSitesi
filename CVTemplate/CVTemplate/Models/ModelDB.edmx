@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CVTabloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciadi" Type="varchar" MaxLength="50" />
+          <Property Name="sifre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BeceriYetenek">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="baslik" Type="varchar" MaxLength="100" />
+          <Property Name="aciklama" Type="text" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tip" Type="nvarchar" MaxLength="50" />
+          <Property Name="baslik" Type="varchar" MaxLength="100" />
+          <Property Name="icerik" Type="text" />
+        </EntityType>
+        <EntityType Name="Deneyim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="görev" Type="varchar" MaxLength="150" />
+          <Property Name="calismaYeri" Type="varchar" MaxLength="250" />
+          <Property Name="calismaYili" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DilBilgi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="konuİsmi" Type="varchar" MaxLength="100" />
+          <Property Name="yuzdesi" Type="int" />
+        </EntityType>
+        <EntityType Name="Egitim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Universite" Type="varchar" MaxLength="150" />
+          <Property Name="Bolum" Type="varchar" MaxLength="150" />
+          <Property Name="egitimYili" Type="varchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriBaslik" Type="varchar" MaxLength="50" />
+          <Property Name="KategoriLink" Type="varchar" MaxLength="200" />
+          <Property Name="tip" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kisi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="varchar" MaxLength="50" />
+          <Property Name="soyad" Type="varchar" MaxLength="50" />
+          <Property Name="meslek" Type="varchar" MaxLength="50" />
+          <Property Name="telefon" Type="varchar" MaxLength="50" />
+          <Property Name="mail" Type="varchar" MaxLength="50" />
+          <Property Name="adress" Type="varchar" MaxLength="350" />
+          <Property Name="ozetBilgi" Type="text" />
+        </EntityType>
+        <EntityType Name="Proje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="altBaslik" Type="varchar" MaxLength="200" />
+          <Property Name="aciklama" Type="varchar" MaxLength="500" />
+          <Property Name="projeYili" Type="varchar" MaxLength="50" />
+          <Property Name="projeLinki" Type="varchar" MaxLength="300" />
+          <Property Name="CategoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjeCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="baslik" Type="varchar" MaxLength="100" />
+          <Property Name="categoryNo" Type="int" />
+        </EntityType>
+        <EntityType Name="Referans">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="refAd" Type="varchar" MaxLength="50" />
+          <Property Name="refSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="refSirket" Type="varchar" MaxLength="200" />
+          <Property Name="refTelefon" Type="varchar" MaxLength="50" />
+          <Property Name="refGorev" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Resimler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resimYol" Type="varchar(max)" />
+          <Property Name="resimNo" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Proje_ProjeCategory">
+          <End Role="ProjeCategory" Type="Self.ProjeCategory" Multiplicity="0..1" />
+          <End Role="Proje" Type="Self.Proje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjeCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Proje">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CVTabloModelStoreContainer">
+          <EntitySet Name="AdminLogin" EntityType="Self.AdminLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BeceriYetenek" EntityType="Self.BeceriYetenek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deneyim" EntityType="Self.Deneyim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DilBilgi" EntityType="Self.DilBilgi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Egitim" EntityType="Self.Egitim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kisi" EntityType="Self.Kisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proje" EntityType="Self.Proje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjeCategory" EntityType="Self.ProjeCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referans" EntityType="Self.Referans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resimler" EntityType="Self.Resimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Proje_ProjeCategory" Association="Self.FK_Proje_ProjeCategory">
+            <End Role="ProjeCategory" EntitySet="ProjeCategory" />
+            <End Role="Proje" EntitySet="Proje" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CVTabloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Referans">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="refAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="refSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="refSirket" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="refTelefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="refGorev" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ModelDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Referans" EntityType="Self.Referans" />
+          <EntitySet Name="Blog" EntityType="CVTabloModel.Blog" />
+          <EntitySet Name="Deneyim" EntityType="CVTabloModel.Deneyim" />
+          <EntitySet Name="DilBilgi" EntityType="CVTabloModel.DilBilgi" />
+          <EntitySet Name="Egitim" EntityType="CVTabloModel.Egitim" />
+          <EntitySet Name="Proje" EntityType="CVTabloModel.Proje" />
+          <EntitySet Name="ProjeCategory" EntityType="CVTabloModel.ProjeCategory" />
+          <EntitySet Name="sysdiagrams" EntityType="CVTabloModel.sysdiagrams" />
+          <AssociationSet Name="FK_Proje_ProjeCategory" Association="CVTabloModel.FK_Proje_ProjeCategory">
+            <End Role="ProjeCategory" EntitySet="ProjeCategory" />
+            <End Role="Proje" EntitySet="Proje" />
+          </AssociationSet>
+          <EntitySet Name="AdminLogin" EntityType="CVTabloModel.AdminLogin" />
+          <EntitySet Name="Resimler" EntityType="CVTabloModel.Resimler" />
+          <EntitySet Name="Kisi" EntityType="CVTabloModel.Kisi" />
+          <EntitySet Name="BeceriYetenek" EntityType="CVTabloModel.BeceriYetenek" />
+          <EntitySet Name="Kategoriler" EntityType="CVTabloModel.Kategoriler" />
+        </EntityContainer>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="baslik" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Deneyim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="görev" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="calismaYeri" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="calismaYili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DilBilgi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="konuİsmi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="yuzdesi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Egitim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Universite" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Bolum" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="egitimYili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Proje">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="altBaslik" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="projeYili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="projeLinki" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <NavigationProperty Name="ProjeCategory" Relationship="CVTabloModel.FK_Proje_ProjeCategory" FromRole="Proje" ToRole="ProjeCategory" />
+        </EntityType>
+        <EntityType Name="ProjeCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="baslik" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="categoryNo" Type="Int32" />
+          <NavigationProperty Name="Proje" Relationship="CVTabloModel.FK_Proje_ProjeCategory" FromRole="ProjeCategory" ToRole="Proje" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Proje_ProjeCategory">
+          <End Type="CVTabloModel.ProjeCategory" Role="ProjeCategory" Multiplicity="0..1" />
+          <End Type="CVTabloModel.Proje" Role="Proje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjeCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Proje">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Resimler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resimYol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="resimNo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Kisi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="meslek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adress" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="ozetBilgi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BeceriYetenek">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="baslik" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriBaslik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KategoriLink" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="tip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CVTabloModelStoreContainer" CdmEntityContainer="ModelDB">
+          <EntitySetMapping Name="Referans">
+            <EntityTypeMapping TypeName="CVTabloModel.Referans">
+              <MappingFragment StoreEntitySet="Referans">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="refAd" ColumnName="refAd" />
+                <ScalarProperty Name="refSoyad" ColumnName="refSoyad" />
+                <ScalarProperty Name="refSirket" ColumnName="refSirket" />
+                <ScalarProperty Name="refTelefon" ColumnName="refTelefon" />
+                <ScalarProperty Name="refGorev" ColumnName="refGorev" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blog">
+            <EntityTypeMapping TypeName="CVTabloModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="tip" ColumnName="tip" />
+                <ScalarProperty Name="icerik" ColumnName="icerik" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deneyim">
+            <EntityTypeMapping TypeName="CVTabloModel.Deneyim">
+              <MappingFragment StoreEntitySet="Deneyim">
+                <ScalarProperty Name="calismaYili" ColumnName="calismaYili" />
+                <ScalarProperty Name="calismaYeri" ColumnName="calismaYeri" />
+                <ScalarProperty Name="görev" ColumnName="görev" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DilBilgi">
+            <EntityTypeMapping TypeName="CVTabloModel.DilBilgi">
+              <MappingFragment StoreEntitySet="DilBilgi">
+                <ScalarProperty Name="yuzdesi" ColumnName="yuzdesi" />
+                <ScalarProperty Name="konuİsmi" ColumnName="konuİsmi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Egitim">
+            <EntityTypeMapping TypeName="CVTabloModel.Egitim">
+              <MappingFragment StoreEntitySet="Egitim">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="egitimYili" ColumnName="egitimYili" />
+                <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+                <ScalarProperty Name="Universite" ColumnName="Universite" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proje">
+            <EntityTypeMapping TypeName="CVTabloModel.Proje">
+              <MappingFragment StoreEntitySet="Proje">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="projeLinki" ColumnName="projeLinki" />
+                <ScalarProperty Name="projeYili" ColumnName="projeYili" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="altBaslik" ColumnName="altBaslik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjeCategory">
+            <EntityTypeMapping TypeName="CVTabloModel.ProjeCategory">
+              <MappingFragment StoreEntitySet="ProjeCategory">
+                <ScalarProperty Name="categoryNo" ColumnName="categoryNo" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CVTabloModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminLogin">
+            <EntityTypeMapping TypeName="CVTabloModel.AdminLogin">
+              <MappingFragment StoreEntitySet="AdminLogin">
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resimler">
+            <EntityTypeMapping TypeName="CVTabloModel.Resimler">
+              <MappingFragment StoreEntitySet="Resimler">
+                <ScalarProperty Name="resimNo" ColumnName="resimNo" />
+                <ScalarProperty Name="resimYol" ColumnName="resimYol" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kisi">
+            <EntityTypeMapping TypeName="CVTabloModel.Kisi">
+              <MappingFragment StoreEntitySet="Kisi">
+                <ScalarProperty Name="ozetBilgi" ColumnName="ozetBilgi" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="meslek" ColumnName="meslek" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeceriYetenek">
+            <EntityTypeMapping TypeName="CVTabloModel.BeceriYetenek">
+              <MappingFragment StoreEntitySet="BeceriYetenek">
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="CVTabloModel.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="tip" ColumnName="tip" />
+                <ScalarProperty Name="KategoriLink" ColumnName="KategoriLink" />
+                <ScalarProperty Name="KategoriBaslik" ColumnName="KategoriBaslik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

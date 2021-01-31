@@ -1,0 +1,41 @@
+﻿
+@model CVTemplate.Controllers.AdminController.AllTables2
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+<h2>Blog Kategori</h2>
+<hr />
+@Html.ActionLink("Yeni Blog Ekle", "YeniBlog", "Admin", null, new { @class = "btn btn-success btn-xs" })
+<br />
+<br />
+<hr />
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+
+            <th scope="col">Kategori Başlık</th>
+            <th scope="col" width="25%">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.lstKategori.Where(x=> x.tip != "0"))
+        {
+        <tr>
+            <td>@item.KategoriBaslik</td>
+            <td>
+                @Html.ActionLink("İncele", "BlogIncele", "Admin", new { id = item.tip }, new { @class = "btn btn-info btn-xs" })
+           
+                @Html.ActionLink("Güncelle", "BlogGuncelle", "Admin", new { id = item.id }, new { @class = "btn btn-warning btn-xs" })
+           
+                @Html.ActionLink("Sil", "BlogSil", "Admin", new { id = item.id }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
